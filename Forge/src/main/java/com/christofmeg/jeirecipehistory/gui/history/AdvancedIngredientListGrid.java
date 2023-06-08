@@ -11,6 +11,7 @@ import mezz.jei.api.helpers.IModIdHelper;
 import mezz.jei.api.ingredients.IIngredientHelper;
 import mezz.jei.api.ingredients.ITypedIngredient;
 import mezz.jei.api.ingredients.subtypes.UidContext;
+import mezz.jei.common.input.IClickableIngredientInternal;
 import mezz.jei.common.network.IConnectionToServer;
 import mezz.jei.common.util.ImmutableRect2i;
 import mezz.jei.common.util.MathUtil;
@@ -21,13 +22,12 @@ import mezz.jei.core.config.IClientConfig;
 import mezz.jei.core.config.IWorldConfig;
 import mezz.jei.gui.GuiScreenHelper;
 import mezz.jei.gui.overlay.IngredientGrid;
-import mezz.jei.ingredients.RegisteredIngredients;
-import mezz.jei.ingredients.TypedIngredient;
-import mezz.jei.input.IClickedIngredient;
-import mezz.jei.input.mouse.handlers.DeleteItemInputHandler;
-import mezz.jei.render.ElementRenderer;
-import mezz.jei.render.IngredientListRenderer;
-import mezz.jei.render.IngredientListSlot;
+import mezz.jei.library.ingredients.RegisteredIngredients;
+import mezz.jei.library.ingredients.TypedIngredient;
+import mezz.jei.gui.input.handlers.DeleteItemInputHandler;
+import mezz.jei.gui.overlay.ElementRenderer;
+import mezz.jei.gui.overlay.IngredientListRenderer;
+import mezz.jei.gui.overlay.IngredientListSlot;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.util.Mth;
@@ -242,7 +242,7 @@ public class AdvancedIngredientListGrid extends IngredientGrid {
         }
 
         @Override
-        public @NotNull Stream<IClickedIngredient<?>> getIngredientUnderMouse(double mouseX, double mouseY) {
+        public @NotNull Stream<IClickableIngredientInternal<?>> getIngredientUnderMouse(double mouseX, double mouseY) {
             return Stream.concat(
                     super.getIngredientUnderMouse(mouseX, mouseY),
                     historyListRender.getSlots()

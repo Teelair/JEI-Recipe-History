@@ -2,7 +2,7 @@ package com.christofmeg.jeirecipehistory.mixin.accessor;
 
 import mezz.jei.gui.recipes.IRecipeGuiLogic;
 import mezz.jei.gui.recipes.RecipesGui;
-import mezz.jei.recipes.RecipeTransferManager;
+import mezz.jei.library.recipes.RecipeTransferManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 

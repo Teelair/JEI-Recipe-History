@@ -4,19 +4,19 @@ import com.christofmeg.jeirecipehistory.mixin.accessor.BookmarkOverlayAccessor;
 import com.christofmeg.jeirecipehistory.recipe.IRecipeInfo;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.ingredients.ITypedIngredient;
-import mezz.jei.bookmarks.BookmarkList;
+import mezz.jei.gui.bookmarks.BookmarkList;
 import mezz.jei.common.network.IConnectionToServer;
 import mezz.jei.common.util.ImmutableRect2i;
-import mezz.jei.core.config.IClientConfig;
+import mezz.jei.gui.config.IClientConfig;
 import mezz.jei.core.config.IWorldConfig;
-import mezz.jei.gui.GuiScreenHelper;
+import mezz.jei.library.gui.ScreenHelper;
 import mezz.jei.gui.elements.GuiIconToggleButton;
 import mezz.jei.gui.overlay.IngredientGridWithNavigation;
 import mezz.jei.gui.overlay.bookmarks.BookmarkOverlay;
-import mezz.jei.gui.textures.Textures;
-import mezz.jei.input.mouse.IUserInputHandler;
-import mezz.jei.input.mouse.handlers.CombinedInputHandler;
-import mezz.jei.input.mouse.handlers.ProxyInputHandler;
+import mezz.jei.common.gui.textures.Textures;
+import mezz.jei.gui.input.IUserInputHandler;
+import mezz.jei.gui.input.handlers.CombinedInputHandler;
+import mezz.jei.gui.input.handlers.ProxyInputHandler;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -54,7 +54,7 @@ public class AdvancedBookmarkOverlay extends BookmarkOverlay {
             IngredientGridWithNavigation contents,
             IClientConfig clientConfig,
             IWorldConfig worldConfig,
-            GuiScreenHelper guiScreenHelper,
+            ScreenHelper guiScreenHelper,
             IConnectionToServer serverConnection
     ) {
         if(!JeiRecipeHistoryConfig.isAllModFeatuesDisabled()){
@@ -65,7 +65,7 @@ public class AdvancedBookmarkOverlay extends BookmarkOverlay {
         }
     }
 
-    public AdvancedBookmarkOverlay(BookmarkList bookmarkList, Textures textures, IngredientGridWithNavigation contents, IClientConfig clientConfig, IWorldConfig worldConfig, GuiScreenHelper guiScreenHelper, IConnectionToServer serverConnection) {
+    public AdvancedBookmarkOverlay(BookmarkList bookmarkList, Textures textures, IngredientGridWithNavigation contents, IClientConfig clientConfig, IWorldConfig worldConfig, ScreenHelper guiScreenHelper, IConnectionToServer serverConnection) {
         super(bookmarkList, textures, contents, clientConfig, worldConfig, guiScreenHelper, serverConnection);
         this.contents = accessor.getContents();
         this.recordConfigButton = ModConfigButton.create(this);

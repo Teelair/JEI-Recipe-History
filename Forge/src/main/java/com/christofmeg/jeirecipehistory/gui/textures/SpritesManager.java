@@ -1,7 +1,7 @@
 package com.christofmeg.jeirecipehistory.gui.textures;
 
 import com.christofmeg.jeirecipehistory.Constants;
-import mezz.jei.gui.textures.JeiSpriteUploader;
+import mezz.jei.common.gui.textures.JeiSpriteUploader;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.TextureAtlasHolder;

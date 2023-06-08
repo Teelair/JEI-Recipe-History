@@ -17,8 +17,8 @@ import mezz.jei.api.runtime.IIngredientManager;
 import mezz.jei.api.runtime.IJeiRuntime;
 import mezz.jei.gui.recipes.IRecipeGuiLogic;
 import mezz.jei.gui.recipes.RecipesGui;
-import mezz.jei.ingredients.RegisteredIngredients;
-import mezz.jei.recipes.RecipeTransferManager;
+import mezz.jei.library.ingredients.RegisteredIngredients;
+import mezz.jei.library.recipes.RecipeTransferManager;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
