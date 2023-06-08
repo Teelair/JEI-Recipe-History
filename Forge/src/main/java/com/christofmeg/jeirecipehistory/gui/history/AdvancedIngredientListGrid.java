@@ -15,12 +15,12 @@ import mezz.jei.common.input.IClickableIngredientInternal;
 import mezz.jei.common.network.IConnectionToServer;
 import mezz.jei.common.util.ImmutableRect2i;
 import mezz.jei.common.util.MathUtil;
-import mezz.jei.config.IEditModeConfig;
-import mezz.jei.config.IIngredientFilterConfig;
-import mezz.jei.config.IIngredientGridConfig;
-import mezz.jei.core.config.IClientConfig;
+import mezz.jei.api.runtime.IEditModeConfig;
+import mezz.jei.gui.config.IIngredientFilterConfig;
+import mezz.jei.gui.config.IIngredientGridConfig;
+import mezz.jei.gui.config.IClientConfig;
 import mezz.jei.core.config.IWorldConfig;
-import mezz.jei.gui.GuiScreenHelper;
+import mezz.jei.library.gui.ScreenHelper;
 import mezz.jei.gui.overlay.IngredientGrid;
 import mezz.jei.library.ingredients.RegisteredIngredients;
 import mezz.jei.library.ingredients.TypedIngredient;
@@ -59,7 +59,7 @@ public class AdvancedIngredientListGrid extends IngredientGrid {
     private int historyHeight;
 
         @SuppressWarnings("unused")
-        public static IngredientGrid create(RegisteredIngredients registeredIngredients, IIngredientGridConfig gridConfig, IEditModeConfig editModeConfig, IIngredientFilterConfig ingredientFilterConfig, IClientConfig clientConfig, IWorldConfig worldConfig, GuiScreenHelper guiScreenHelper, IModIdHelper modIdHelper, IConnectionToServer serverConnection
+        public static IngredientGrid create(RegisteredIngredients registeredIngredients, IIngredientGridConfig gridConfig, IEditModeConfig editModeConfig, IIngredientFilterConfig ingredientFilterConfig, IClientConfig clientConfig, IWorldConfig worldConfig, ScreenHelper guiScreenHelper, IModIdHelper modIdHelper, IConnectionToServer serverConnection
     ) {
             if(JeiRecipeHistoryConfig.isAllModFeatuesDisabled()) {
                 return new IngredientGrid(registeredIngredients, gridConfig, editModeConfig, ingredientFilterConfig, clientConfig, worldConfig, guiScreenHelper, modIdHelper, serverConnection);
@@ -75,7 +75,7 @@ public class AdvancedIngredientListGrid extends IngredientGrid {
                 IIngredientFilterConfig ingredientFilterConfig,
                 IClientConfig clientConfig,
                 IWorldConfig worldConfig,
-                GuiScreenHelper guiScreenHelper,
+                ScreenHelper guiScreenHelper,
                 IModIdHelper modIdHelper,
                 IConnectionToServer serverConnection) {
             super(registeredIngredients,

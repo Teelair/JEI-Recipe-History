@@ -5,7 +5,7 @@ import com.christofmeg.jeirecipehistory.platform.services.IPlatformConfigHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.*;
-import net.minecraftforge.client.ConfigGuiHandler;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.ModList;
 
@@ -36,7 +36,7 @@ public class ForgeConfigHelper implements IPlatformConfigHelper {
         return ModList.get()
                 .getModContainerById(Constants.MOD_ID)
                 .map(ModContainer::getModInfo)
-                .flatMap(ConfigGuiHandler::getGuiFactoryFor)
+                .flatMap(ConfigScreenHandler::getScreenFactoryFor)
                 .map(f -> f.apply(minecraft, minecraft.screen));
     }
 
@@ -45,7 +45,7 @@ public class ForgeConfigHelper implements IPlatformConfigHelper {
         ClickEvent clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.curseforge.com/minecraft/mc-mods/configured");
         Style style = Style.EMPTY.withUnderlined(true)
                 .withClickEvent(clickEvent);
-        MutableComponent message = new TranslatableComponent("jei.message.configured");
+        MutableComponent message = Component.translatable("jei.message.configured");
         return message.setStyle(style);
     }
 }

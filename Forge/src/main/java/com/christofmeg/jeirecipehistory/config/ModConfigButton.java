@@ -9,7 +9,6 @@ import mezz.jei.gui.input.UserInput;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class ModConfigButton extends GuiIconToggleButton {
          tooltip.add(new TranslatableComponent("jeirecipehistory.tooltip.button"));
      }
 */
-        tooltip.add(new TranslatableComponent("jeirecipehistory.tooltip.button"));
+        tooltip.add(Component.translatable("jeirecipehistory.tooltip.button"));
     }
 
     @Override

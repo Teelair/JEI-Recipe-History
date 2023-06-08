@@ -7,7 +7,7 @@ import com.christofmeg.jeirecipehistory.recipe.IRecipeInfo;
 import com.mojang.blaze3d.platform.InputConstants;
 import mezz.jei.api.ingredients.ITypedIngredient;
 import mezz.jei.core.util.ReflectionUtil;
-import mezz.jei.input.MouseUtil;
+import mezz.jei.gui.input.MouseUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
@@ -31,7 +31,7 @@ public class GuiInputEventHandler {
     private static final Set<InputConstants.Key> pressedKeys = new HashSet<>();
 
     @SubscribeEvent
-    public static void onKeyboardKeyPressedEvent(ScreenEvent.KeyboardKeyPressedEvent.Pre event) {
+    public static void onKeyboardKeyPressedEvent(ScreenEvent.KeyPressed.Pre event) {
         InputConstants.Key input = InputConstants.getKey(event.getKeyCode(), event.getScanCode());
         boolean shouldNotHandleKey = pressedKeys.contains(input) ||
                 isContainerTextFieldFocused(event.getScreen()) ||
@@ -55,7 +55,7 @@ public class GuiInputEventHandler {
     }
 
     @SubscribeEvent
-    public static void onKeyboardKeyReleasedEvent(ScreenEvent.KeyboardKeyReleasedEvent.Pre event) {
+    public static void onKeyboardKeyReleasedEvent(ScreenEvent.KeyReleased.Pre event) {
         InputConstants.Key input = InputConstants.getKey(event.getKeyCode(), event.getScanCode());
         pressedKeys.remove(input);
     }
